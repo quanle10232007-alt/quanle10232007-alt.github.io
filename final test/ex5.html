@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .tab { cursor:pointer; padding:10px; display:inline-block; border:1px solid #000; }
+        .active { background: yellow; } .content { display:none; } .show { display:block; }
+    </style>
+</head>
+<body>
+    <div class="tab active" onclick="switchTab(this, 'c1')">Features &reg; &rarr;</div>
+    <div class="tab" onclick="switchTab(this, 'c2')">Pricing &euro; &rarr;</div>
+    <div id="c1" class="content show">Features Info...</div>
+    <div id="c2" class="content">Pricing Info...</div>
+    <script>
+        function switchTab(el, id) {
+            document.querySelectorAll('.content').forEach(c => c.classList.remove('show'));
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.getElementById(id).classList.add('show');
+            el.classList.add('active');
+        }
+    </script>
+</body>
+</html>

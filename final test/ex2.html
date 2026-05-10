@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <table id="partsTable" border="1" style="padding: 10px; border-collapse: collapse;">
+        <tr><th>Part &copy;</th><th>Price &trade;</th></tr>
+        <tr><td>CPU &bull;</td><td>$300</td></tr>
+        <tr><td>GPU &bull;</td><td>$800</td></tr>
+        <tr><td>RAM &bull;</td><td>$100</td></tr>
+        <tr><td>SSD &bull;</td><td>$150</td></tr>
+    </table>
+    <button onclick="changeColor()">Change Color</button>
+    <script>
+        function changeColor() {
+            document.getElementById('partsTable').style.color = "red";
+        }
+    </script>
+</body>
+</html>

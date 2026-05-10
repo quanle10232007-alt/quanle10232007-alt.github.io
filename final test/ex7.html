@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <form id="contactForm" style="border:1px solid #000; padding:20px; width:250px;">
+        <label>Name:</label><input type="text" class="field"><br>
+        <label>Email:</label><input type="email" class="field"><br>
+        <label>Msg:</label><textarea class="field"></textarea><br>
+        <button type="button" onclick="checkForm()">Submit</button>
+    </form>
+    <script>
+        function checkForm() {
+            let fields = document.querySelectorAll('.field');
+            let empty = false;
+            fields.forEach(f => { if(f.value === "") empty = true; });
+            alert(empty ? "Please fill all fields" : "Success!");
+        }
+    </script>
+</body>
+</html>
