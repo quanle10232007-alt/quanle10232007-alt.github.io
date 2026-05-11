@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Exercise 2</title>
+        <style>
+            table {
+                border-collapse: collapse;
+                width: 300px;
+            }
+            table, th, td {
+                border: 1px solid black;
+            }
+            th, td {
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <table id="partsTable">
+            <tr>
+                <th>Parts &copy;</th>
+                <th>Prices &trade;</th>
+            </tr>
+            <tr>
+                <td>CPU &bull;</td>
+                <td>$200</td>
+            </tr>
+            <tr>
+                <td>GPU &bull;</td>
+                <td>$300</td>
+            </tr>
+            <tr>
+                <td>RAM &bull;</td>
+                <td>$100</td>
+            </tr>
+            <tr>
+                <td>SSD &bull;</td>
+                <td>$150</td>
+            </tr>
+        </table>
+
+        <button onclick="changeColor()">Change Color</button>
+
+        <script>
+           function changeColor() {
+            document.getElementById('partsTable').style.color = "red";
+           }
+        </script>
+    </body>
+</html>

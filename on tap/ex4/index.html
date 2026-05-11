@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 4</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 450px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <table>
+        <tr>
+            <th>Section</th>
+            <th>Item</th>
+            <th>Price</th>
+        </tr>
+        <tr class="all">
+            <td>Appetizers &reg;</td>
+            <td>Spring Rolls</td>
+            <td>&ge; $5</td>
+        </tr>
+        <tr class="all veg">
+            <td>Appetizers &reg;</td>
+            <td>Green Salad</td>
+            <td>&ge; $4</td>
+        </tr>
+        <tr class="all">
+            <td>Main Course &sect;</td>
+            <td>Grilled Chicken</td>
+            <td>&ge; $15</td>
+        </tr>
+        <tr class="all veg">
+            <td>Main Course &sect;</td>
+            <td>Veggie Pasta</td>
+            <td>&ge; $12</td>
+        </tr>
+        <tr class="all veg">
+            <td>Desserts</td>
+            <td>Fruit Platter</td>
+            <td>&ge; $6</td>
+        </tr>
+        <tr class="all">
+            <td>Drinks</td>
+            <td>Milk Tea</td>
+            <td>&ge; $3</td>
+        </tr>
+    </table>
+
+    <br>
+    <button onclick="filterMenu()">Filter Menu</button>
+
+    <script>
+        var isFiltered = false;
+
+        function filterMenu() {
+            var items = document.getElementsByClassName('all');
+            isFiltered = !isFiltered;
+
+            for (var i = 0; i < items.length; i++) {
+                if (isFiltered) {
+                    if (items[i].classList.contains('veg')) {
+                        items[i].style.display = "";
+                    } else {
+                        items[i].style.display = "none";
+                    }
+                } else {
+                    items[i].style.display = "";
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>

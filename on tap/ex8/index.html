@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 8</title>
+    <style>
+        .form-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            width: 350px;
+            border: 1px solid black;
+            padding: 20px;
+        }
+        .grid-item {
+            display: grid;
+            gap: 5px;
+        }
+        .radio-group, .checkbox-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        #status {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <form id="subForm" class="form-container">
+        <div class="grid-item">
+            <label>Full Name:</label>
+            <input type="text" id="fullname">
+        </div>
+
+        <div class="grid-item">
+            <label>Email:</label>
+            <input type="email" id="email">
+        </div>
+
+        <div class="grid-item">
+            <label>Subscription Type:</label>
+            <div class="radio-group">
+                <input type="radio" name="type" value="Monthly" checked> Monthly
+                <input type="radio" name="type" value="Yearly"> Yearly
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <label>Interests:</label>
+            <div class="checkbox-group">
+                <input type="checkbox" class="interest" value="Tech"> Tech
+                <input type="checkbox" class="interest" value="Design"> Design
+                <input type="checkbox" class="interest" value="Business"> Business
+            </div>
+        </div>
+
+        <button type="button" onclick="validateSubscription()">Subscribe</button>
+    </form>
+
+    <div id="status"></div>
+
+    <script>
+        function validateSubscription() {
+            var email = document.getElementById("email").value;
+            var interests = document.getElementsByClassName("interest");
+            var status = document.getElementById("status");
+            
+            var interestSelected = false;
+            for (var i = 0; i < interests.length; i++) {
+                if (interests[i].checked) {
+                    interestSelected = true;
+                    break;
+                }
+            }
+
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!emailPattern.test(email)) {
+                status.style.color = "red";
+                status.innerText = "Invalid email format!";
+            } else if (!interestSelected) {
+                status.style.color = "red";
+                status.innerText = "Please select at least one interest!";
+            } else {
+                status.style.color = "green";
+                status.innerText = "Success! Thank you for subscribing.";
+            }
+        }
+    </script>
+
+</body>
+</html>

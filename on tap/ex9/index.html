@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 9</title>
+    <style>
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            width: 500px;
+        }
+        .card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+        .card:hover {
+            box-shadow: 4px 4px 15px rgba(0,0,0,0.3);
+            transform: translateY(-5px);
+        }
+        .price {
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <button onclick="togglePrice()">Toggle Price</button>
+    <br><br>
+
+    <div class="product-grid">
+        <div class="card">
+            <h3>Laptop &reg;</h3>
+            <p class="price">1200 &euro;</p>
+            <p>High performance for work &rarr;</p>
+        </div>
+        <div class="card">
+            <h3>Phone &reg;</h3>
+            <p class="price">800 &euro;</p>
+            <p>Latest model smartphone &rarr;</p>
+        </div>
+        <div class="card">
+            <h3>Watch &reg;</h3>
+            <p class="price">200 &euro;</p>
+            <p>Waterproof smart watch &rarr;</p>
+        </div>
+        <div class="card">
+            <h3>Camera &reg;</h3>
+            <p class="price">500 &euro;</p>
+            <p>Professional DSLR &rarr;</p>
+        </div>
+    </div>
+
+    <script>
+        var isHidden = false;
+        function togglePrice() {
+            var prices = document.getElementsByClassName("price");
+            isHidden = !isHidden;
+            
+            for (var i = 0; i < prices.length; i++) {
+                if (isHidden) {
+                    prices[i].style.display = "none";
+                } else {
+                    prices[i].style.display = "block";
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 5</title>
+    <style>
+        .tab-container {
+            display: flex;
+            cursor: pointer;
+        }
+        .tab {
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+        .active-tab {
+            background-color: #fff;
+            border-bottom: none;
+            font-weight: bold;
+        }
+        .content {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-top: none;
+            width: 400px;
+        }
+        .active-content {
+            display: block;
+        }
+        .arrow {
+            display: none;
+        }
+        .active-tab .arrow {
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tab-container">
+        <div class="tab active-tab" onclick="switchTab(event, 'features')">
+            Features &reg; <span class="arrow">&rarr;</span>
+        </div>
+        <div class="tab" onclick="switchTab(event, 'pricing')">
+            Pricing &euro; <span class="arrow">&rarr;</span>
+        </div>
+        <div class="tab" onclick="switchTab(event, 'reviews')">
+            Reviews <span class="arrow">&rarr;</span>
+        </div>
+        <div class="tab" onclick="switchTab(event, 'support')">
+            Support <span class="arrow">&rarr;</span>
+        </div>
+    </div>
+
+    <div id="features" class="content active-content">Content for Features</div>
+    <div id="pricing" class="content">Content for Pricing</div>
+    <div id="reviews" class="content">Content for Reviews</div>
+    <div id="support" class="content">Content for Support</div>
+
+    <script>
+        function switchTab(event, tabId) {
+            var contents = document.getElementsByClassName('content');
+            for (var i = 0; i < contents.length; i++) {
+                contents[i].classList.remove('active-content');
+            }
+
+            var tabs = document.getElementsByClassName('tab');
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove('active-tab');
+            }
+
+            document.getElementById(tabId).classList.add('active-content');
+            event.currentTarget.classList.add('active-tab');
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 6</title>
+    <style>
+        .nav-menu {
+            display: block;
+            list-style: none;
+            padding: 0;
+        }
+        .nav-menu li {
+            display: inline;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <button onclick="toggleMenu()">Toggle Menu</button>
+
+    <ul id="menu" class="nav-menu">
+        <li><a href="#">Home</a> &bull;</li>
+        <li><a href="#">Books &copy;</a> &bull;</li>
+        <li><a href="#">Authors &trade;</a> &bull;</li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("menu");
+            menu.classList.toggle("hidden");
+        }
+    </script>
+
+</body>
+</html>

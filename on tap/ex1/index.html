@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 1</title>
+</head>
+<body>
+
+<section id="ex1" style="display: flex; flex-direction: column; align-items: center; border 1px solid #ccc padding: 20px;">
+    <h2>Register Form</h2>
+    <form id="regForm" style="display: flex; flex-direction: column; gap: 10px; width: 300px;">
+        <input type="text" id="username" placeholder="Username (5-15 chars)" required>
+        <input type="password" id="password" placeholder="Password (letters and numbers)" required>
+        <div id="strength">Strength: <span>None</span></div>
+        <input type="file" id="profilePics" accept=".PNG,.JPG">
+        <button type="submit" onclick="validateForm()">Register</button>
+        <div id="msg"></div>
+    </form>
+</section> 
+
+<script>
+    const passwordInput = document.getElementById('password');
+    const strengthText = document.querySelector('#strength span');
+
+    passwordInput.addEventListener('input', () => {
+        const val = passwordInput.value;
+        let strength = "None";
+        
+        if (val.length > 0) {
+            strength = "Weak";
+            if (val.length >= 8 && /[a-zA-Z]/.test(val) && /[0-9]/.test(val)) {
+                strength = "Strong";
+            } else if (val.length >= 5) {
+                strength = "Medium";
+            }
+        }
+        strengthText.textContent = strength;
+    });
+
+    function validateForm() {
+        const user = document.getElementById('username').value;
+        const pass = passwordInput.value;
+        const file = document.getElementById('profilePic').files[0];
+        const msg = document.getElementById('msg');
+
+        if (user.length < 5 || user.length > 15) {
+            msg.innerText = "Username phải từ 5-15 ký tự!";
+        } else if (!(/[a-zA-Z]/.test(pass) && /[0-9]/.test(pass))) {
+            msg.innerText = "Password phải chứa cả chữ và số!";
+        } else if (!file) {
+            msg.innerText = "Vui lòng chọn ảnh!";
+        } else {
+            msg.innerText = "Đăng ký thành công!";
+        }
+    }
+</script>
+</body>
+</html>

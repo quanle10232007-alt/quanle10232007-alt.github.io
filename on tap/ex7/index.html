@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 7</title>
+    <style>
+        form {
+            width: 300px;
+            border: 1px solid black;
+            padding: 20px;
+        }
+        div {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, textarea {
+            width: 100%;
+            box-sizing: border-box;
+        }
+        #message-box {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <form id="contactForm">
+        <div>
+            <label>Name:</label>
+            <input type="text" id="name">
+        </div>
+        <div>
+            <label>Email:</label>
+            <input type="email" id="email">
+        </div>
+        <div>
+            <label>Message:</label>
+            <textarea id="message"></textarea>
+        </div>
+        <button type="button" onclick="validateForm()">Submit</button>
+    </form>
+
+    <div id="message-box"></div>
+
+    <script>
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var msg = document.getElementById("message").value;
+            var display = document.getElementById("message-box");
+
+            if (name === "" || email === "" || msg === "") {
+                display.style.color = "red";
+                display.innerText = "Please fill in all fields!";
+            } else {
+                display.style.color = "green";
+                display.innerText = "Success! Your message has been sent.";
+            }
+        }
+    </script>
+
+</body>
+</html>
